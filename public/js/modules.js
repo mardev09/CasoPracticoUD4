@@ -45,7 +45,6 @@ export function showWindow(type, el) {
             $(this).val(value || '');
         });
     } else { // Si queremos agregar uno nuevo
-        $('.save').text('Agregar producto')
         $('.window form').data('type', 'add');
 
         // Vaciar los inputs
