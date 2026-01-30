@@ -1,0 +1,379 @@
+:root {
+    --color-bg: #74A2AA;
+    --color-texto: #74A2AA;
+    --color-texto-select: #1f1f1f;
+    --color-texto-light: #F0F4F5;
+    --color-navbar-bg: #D7A735;
+    --color-navbar-border: #c99c3386;
+    --color-navbar-hover: rgba(240,244,245,0.37);
+    --color-button-bg: #D7A735;
+    --color-button-hover: #e6b138;
+    --color-error: rgb(255,57,57);
+    --color-success: rgb(37,133,37);
+    --color-input-bg: white;
+    --color-input-border: rgba(0,0,0,0.047);
+    --color-product-bg: white;
+    --color-product-text: #2a2a2a;
+    --color-addproduct-bg: #D7A735;
+    --color-overlay-bg: rgba(0,0,0,0.45);
+    --color-modal-bg: white;
+}
+
+main[data-theme="dark"] {
+    --color-bg: #1f1f1f;
+    --color-texto: #F0F4F5;
+    --color-texto-select: #1f1f1f;
+    --color-texto-light: #FFFFFF;
+    --color-button-bg: #555555;
+    --color-button-hover: #777777;
+    --color-error: #ff6b6b;
+    --color-success: #4caf50;
+    --color-input-bg: #2a2a2a;
+    --color-input-border: #555555;
+    --color-product-bg: #2a2a2a;
+    --color-product-text: #F0F4F5;
+    --color-addproduct-bg: #555555;
+    --color-navbar-border: #555555;
+    --color-overlay-bg: rgba(0,0,0,0.75);
+    --color-modal-bg: #2a2a2a;
+}
+
+.navbar[data-theme="dark"] {
+    --color-navbar-bg: #333333;
+    --color-navbar-border: #555555;
+    --color-navbar-hover: rgba(255,255,255,0.15);
+}
+
+.window[data-theme="dark"] {
+    --color-modal-bg: #2a2a2a;
+    --color-input-bg: #2a2a2a;
+    --color-texto: #F0F4F5;
+    --color-input-border: #555555;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+::selection {
+    color: var(--color-texto-light);
+    background-color:#90c9d3;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-texto);
+}
+
+.error {
+    color: var(--color-error);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.error.hide {
+    display: none;
+}
+
+.navbar {
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+    padding: 0.5em 1em;
+    width: fit-content;
+    border-radius: 8px;
+    position: fixed;
+    top: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-navbar-bg);
+    border: 1px solid var(--color-navbar-border);
+    box-shadow: 0px 0px 10px #00000023;
+}
+
+.navbar a, .navbar button {
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0.5em 0.8em;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-light);
+    transition: 200ms ease;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.navbar a.active, .navbar button.active {
+    background-color: var(--color-navbar-hover);
+}
+
+.navbar a:hover, .navbar button:hover {
+    background-color: var(--color-navbar-hover);
+}
+
+.login, .register, .home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login form, .register form {
+    width: 25rem;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #00000012;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: var(--color-texto);
+    background-color: var(--color-input-bg);
+    align-items: center;
+}
+
+.login form input, .register form input, .home .searchBar input, .home .searchBar select, .add-product input, .add-product select, .window form input {
+    padding: 0.8em;
+    border-radius: 8px;
+    border: 1px solid var(--color-input-border);
+    outline: none;
+    transition: border 200ms ease;
+    color: var(--color-texto);
+    font-size: 0.9rem;
+    background-color: var(--color-input-bg);
+}
+
+.login form input:focus, .register form input:focus, .home .searchBar input:focus, .home .searchBar select:focus, .add-product input:focus, .window form input:focus {
+    border-color: #c99c3377;
+}
+
+.login form button, .login form input, .register form input, .register form button, .add-product input, .window form input {
+    width: 100%;
+}
+
+.button {
+    background-color: var(--color-button-bg);
+    color: var(--color-texto-light);
+    border-radius: 8px;
+    padding: 0.8em 1em;
+    font-weight: 500;
+    border: 1px solid var(--color-navbar-border);
+    cursor: pointer;
+    transition: 250ms ease;
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
+}
+
+.button:hover {
+    background-color: var(--color-button-hover);
+}
+
+.noAccount {
+    display: flex;
+    color: var(--color-texto);
+    gap: 1em;
+}
+
+.noAccount a {
+    color: #74A2AA;
+}
+
+.home {
+    flex-direction: column;
+    color: var(--color-texto-light);
+    gap: 2em;
+}
+
+.home .searchBar {
+    background-color: var(--color-input-bg);
+    border-radius: 10px;
+    padding: 0.8em;
+    display: flex;
+    gap: 1em;
+}
+
+.home .searchBar input[name="value"] {
+    width: 30rem;
+}
+
+.home .searchBar button i {
+    line-height: 150%;
+}
+
+.results {
+    width: 70%;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em; 
+    border-radius: 20px;
+    position: relative;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.noCartProducts {
+    color: var(--color-texto-light);
+}
+
+.addProduct {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6em;
+    border-radius: 10px;
+    padding: 1em;
+    max-width: calc(250px - 0.5em);
+    min-width: calc(250px - 0.5em);
+}
+
+.addProduct .button i {
+    font-size: 3rem;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6em;
+    background-color: var(--color-product-bg);
+    border-radius: 10px;
+    padding: 1em;
+    max-width: calc(250px - 0.5em);
+    min-width: calc(250px - 0.5em);
+    cursor: pointer;
+    color: var(--color-product-text);
+}
+
+.product h3 {
+    text-align: center;
+    color: var(--color-product-text);
+}
+
+.product .fabricante {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.product img {
+    width: 200px; 
+    pointer-events: none; 
+    user-select: none;
+}
+
+.product div, .product {
+    display: flex;
+    gap: 1em;
+    color: var(--color-product-text);
+    font-weight: 500;
+}
+
+.deleteButton {
+    background-color: #ac4646;
+    border: 1px solid #7b070786;
+}
+
+.deleteButton:hover {
+    background-color: #be4e4e;
+}
+
+.add-product {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.add-product button {
+    white-space: nowrap;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-overlay-bg);
+    z-index: 100;
+}
+
+.window {
+    border-radius: 10px;
+    border: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    padding: 1em;
+    z-index: 100;
+    background-color: var(--color-modal-bg);
+}
+
+.window form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1em;
+}
+
+.window form .buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.window form .buttons button.save, .greenBtn {
+    background-color: #209b20;
+    border-color: #1979196c;
+}
+
+.window form .buttons button.save:hover, .greenBtn:hover {
+    background-color: #22a522;
+}
+
+.window form .buttons button.cancel, .redBtn {
+    background-color: #bd2424;
+    border-color: #7919196c;
+}
+
+.window form .buttons button.cancel:hover, .redBtn:hover {
+    background-color: #ff0d0d;
+}
+
+#langBtn {
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 0.5em 0.8em;
+    display: flex;
+    align-items: center;
+    color: var(--color-texto-light);
+    transition: 200ms ease;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#langBtn option {
+    color: var(--color-texto-select);
+}
